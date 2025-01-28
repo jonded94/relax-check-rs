@@ -1,5 +1,5 @@
 mod async_utils;
-mod carolus;
+mod monitors;
 
 use metrics_exporter_prometheus::PrometheusBuilder;
 use std::time::Duration;
@@ -13,5 +13,5 @@ async fn main() {
 
     env_logger::init();
 
-    carolus::occupancy_loop(Duration::from_secs(60 * 5)).await;
+    monitors::carolus::occupancy_loop(Duration::from_secs(60 * 5)).await;
 }

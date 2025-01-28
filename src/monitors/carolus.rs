@@ -156,7 +156,7 @@ pub async fn occupancy_loop(duration: Duration) {
                 info!("Set occupancy {occupancy:?}");
                 gauges.set(occupancy);
             }
-            Err(e) => warn!("Error occupancy loop: {}", e),
+            Err(e) => warn!("Error occupancy loop: {e}"),
         }
         tokio::time::sleep(duration).await;
     }
