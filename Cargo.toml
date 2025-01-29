@@ -4,14 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = "1.0.95"
+backoff = { version = "0.4.0", features = ["tokio"] }
+env_logger = "0.11.6"
+log = "0.4.25"
+metrics = "0.24.1"
+metrics-exporter-prometheus = "0.16.1"
+once_cell = "1.20.2"
+# openssl = { version = "0.10.32", features = ["vendored"] }
+reqwest = "0.12.12"
 scraper = "0.22.0"
 thiserror = "2.0.11"
-once_cell = "1.20.2"
-reqwest = "0.12.12"
-tokio = { version ="1.43.0", features = ["full"] }
-backoff = { version = "0.4.0", features = ["tokio"] }
-log = "0.4.25"
-env_logger = "0.11.6"
-metrics-exporter-prometheus = "0.16.1"
-metrics = "0.24.1"
-anyhow = "1.0.95"
+tokio = { version = "1.43.0", features = ["full"] }
+clap = "4.5.27"

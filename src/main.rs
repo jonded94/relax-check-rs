@@ -30,5 +30,9 @@ async fn main() {
 
     env_logger::init();
 
-    monitors::carolus::occupancy_loop(interval).await;
+    let mut handles: Vec<tokio::task::JoinHandle<()>> = Vec::new();
+
+    handles.push(tokio::spawn(monitors::carolus::occupancy_loop(interval)));
+
+    async_utils::wait_for_shutdown(&handles).await;
 }
