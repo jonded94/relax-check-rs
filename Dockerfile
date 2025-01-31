@@ -19,6 +19,7 @@ RUN cargo build --release --target x86_64-unknown-linux-musl
 
 ## We do not need the Rust toolchain to run the binary!
 FROM alpine AS runtime
+LABEL org.opencontainers.image.source="https://github.com/jonded94/relax-check-rs"
 
 WORKDIR /app
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/relax-check-rs /usr/local/bin
